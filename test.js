@@ -1,12 +1,13 @@
-
-
 var generateRSAKeypair = require('generate-rsa-keypair')
 var ursa = require('ursa');
+
 var pair = generateRSAKeypair()
 
 console.log(pair.private) // String with the private key in PEM format
 console.log(pair.public)  // String with the public key in PEM format
 
+// var key = ursa.createPrivateKey(fs.readFileSync('./certs/server/my-server.key.pem'));
+// var crt = ursa.createPublicKey(fs.readFileSync('./certs/client/my-server.pub'));
 var key = ursa.createPrivateKey(pair.private);
 var crt = ursa.createPublicKey(pair.public);
  
